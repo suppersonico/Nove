@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewBag.Title - NovelWeb</title>
+
+    @*@*<environment include="Devlopment">
+            <link rel="stylesheet" asp-href-include="~/css/*" asp-href-exclude="~/css/all.min.css" />
+        </environment>
+        <environment exclude="Devlopment">
+            <link rel="stylesheet" asp-href-include="~/css/all.min.css" />
+        </environment>
+        <link href="~/css/all.min.css" rel="stylesheet" />*@
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body style="background-color:antiquewhite">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" asp-controller="Home">仔仔的小说站</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="true" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse collapse show" id="navbarColor01" style="">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" asp-controller="Home">首页 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Rank">人气小说</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Sort">分类</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">关于本站</a>
+                    </li>
+                </ul>
+                @*<form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                    </form>*@
+                <partial name="_LoginPartial" />
+            </div>
+        </nav>
+    </header>
+    <div class="container" style="background-color:white">
+        <partial name="_CookieConsentPartial" />
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2019 - NovelWeb - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <environment include="Devlopment">
+        <script src="~/js/vendor.js"></script>
+    </environment>
+    <environment exclude="Devlopment">
+        <script src="~/js/all.min.js"></script>
+    </environment>
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
