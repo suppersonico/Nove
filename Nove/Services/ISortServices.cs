@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Nove.Services
 {
-    interface ISortServices
+    public interface ISortServices
     {
         Task<IEnumerable<Sort>> GetSorts();
     }

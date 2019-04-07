@@ -3,14 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Nove.Services;
 
 namespace Nove.Controllers
 {
     public class SortController : Controller
     {
-        public IActionResult Index()
+        private readonly ISortServices _sortServices;
+
+        public SortController(ISortServices sortServices)
         {
-            return View();
+            _sortServices = sortServices;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            return View(await _sortServices.GetSorts());
         }
     }
 }

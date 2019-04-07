@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Nove.Services
 {
-    interface IUserServices
+    public interface IUserServices
     {
         
     }

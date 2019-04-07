@@ -1,7 +1,76 @@
-﻿
+﻿@model IEnumerable<Sort>
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<style type="text/css">
+    .row {
+        padding-top: 30px;
+    }
+</style>
 
+<div class="row">
+    <div class="col-sm">
+        <p>初级</p>
+        @{
+            foreach (var s in Model)
+            {
+                foreach (var b in s.Books)
+                {
+                    if (s.Id == 1)
+                    {
+                        <div class="card" style="width: 18rem;">
+                            <img src="@b.smallImage" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">@b.bookName</h5>
+                                <a href="#" class="btn btn-primary">去看看</a>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+        }
+    </div>
+    <div class="col-sm">
+        <p>中级</p>
+        @{
+            foreach (var s in Model)
+            {
+                foreach (var b in s.Books)
+                {
+                    if (s.Id == 2)
+                    {
+                        <div class="card" style="width: 18rem;">
+                            <img src="@b.smallImage" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">@b.bookName</h5>
+                                <a href="#" class="btn btn-primary">去看看</a>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+        }
+    </div>
+    <div class="col-sm">
+        <p>高级</p>
+        @{
+            foreach (var s in Model)
+            {
+                foreach (var b in s.Books)
+                {
+                    if (s.Id == 3)
+                    {
+                        <div class="card" style="width: 18rem;">
+                            <img src="@b.smallImage" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">@b.bookName</h5>
+                                <a href="#" class="btn btn-primary">去看看</a>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+        }
+    </div>
+</div>

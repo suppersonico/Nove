@@ -1,4 +1,5 @@
-﻿using Nove.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using Nove.Data;
 using Nove.Models;
 using System;
 using System.Collections.Generic;
@@ -15,9 +16,10 @@ namespace Nove.Services
         {
             _applicationDbContext = applicationDbContext;
         }
+
         public Task<IEnumerable<Sort>> GetSorts()
         {
-            return Task.Run(() => _applicationDbContext.Sorts.AsEnumerable());
+            return Task.Run(() => _applicationDbContext.Sorts.Include(s => s.Books).AsEnumerable());
         }
     }
 }

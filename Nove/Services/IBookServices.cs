@@ -11,5 +11,6 @@ namespace Nove.Services
         Task<IEnumerable<Book>> GetAllBooks();
         Task<IEnumerable<Book>> GetBooksRank();
         Task<IEnumerable<Book>> GetBooksRankTop3();
+        Book BookDetail(int id);
     }
 }

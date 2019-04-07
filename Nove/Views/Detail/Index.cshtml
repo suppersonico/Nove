@@ -1,7 +1,15 @@
-﻿
+﻿@model Book
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<img src="@Model.bigImage" class="img-fluid" alt="Responsive image">
+<p>@Model.bookName</p>
+<input class="btn btn-primary" type="button" value="收藏">
 
+<div class="shadow-lg p-3 mb-5 bg-white rounded">
+    @foreach (var line in (IEnumerable<string>)ViewBag.Content)
+    {
+        <p class="line">@line</p>
+    }
+</div>

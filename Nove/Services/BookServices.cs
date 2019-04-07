@@ -15,7 +15,15 @@ namespace Nove.Services
         {
             _applicationDbContext = applicationDbContext;
         }
-        
+
+        public Book BookDetail(int id)
+        {
+            var count = _applicationDbContext.Books.Find(id);
+            count.Rank += 1;
+            _applicationDbContext.SaveChangesAsync();
+            return _applicationDbContext.Books.Find(id);
+        }
+
         public Task<IEnumerable<Book>> GetAllBooks()
         {
             return Task.Run(() => _applicationDbContext.Books.AsEnumerable());

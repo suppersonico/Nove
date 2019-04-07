@@ -14,14 +14,19 @@ using Nove.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Nove.Services;
+using Microsoft.Extensions.FileProviders;
+using System.Reflection;
 
 namespace Nove
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly IHostingEnvironment _env;
+
+        public Startup(IConfiguration configuration, IHostingEnvironment env)
         {
             Configuration = configuration;
+            _env = env;
         }
 
         public IConfiguration Configuration { get; }
@@ -46,6 +51,7 @@ namespace Nove
             services.AddScoped<IBookServices, BookServices>();
             services.AddScoped<ISortServices, SortServices>();
             services.AddScoped<IUserServices, UserServices>();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
