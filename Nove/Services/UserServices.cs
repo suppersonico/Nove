@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Nove.Services
 {
-    public class UserServices
+    public class UserServices:IUserServices
     {
         private readonly ApplicationDbContext _applicationDbContext;
 

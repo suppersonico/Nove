@@ -8,7 +8,6 @@ namespace Nove.Services
 {
     interface IUserServices
     {
-        Task<MyUser> sign(MyUser model);
-        Task Register(MyUser model);
+        
     }
 }
