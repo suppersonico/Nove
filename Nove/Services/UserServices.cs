@@ -1,4 +1,5 @@
-﻿using Nove.Data;
+﻿using Microsoft.AspNetCore.Identity;
+using Nove.Data;
 using Nove.Models;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Nove.Services
 {
-    public class UserServices:IUserServices
+    public class UserServices
     {
         private readonly ApplicationDbContext _applicationDbContext;
 
@@ -16,22 +17,6 @@ namespace Nove.Services
             _applicationDbContext = noveContext;
         }
 
-        public Task Register(MyUser Model)
-        {
-            _applicationDbContext.Add(Model);
-            return Task.CompletedTask;
-        }
-
-        public Task<MyUser> sign(MyUser model)
-        {
-            if ((_applicationDbContext.MyUsers.FirstOrDefault(u => u.userName == model.userName)) != null && (_applicationDbContext.MyUsers.FirstOrDefault(u => u.password == model.password)) != null)
-            {
-                return Task.Run(() => model);
-            }
-            else
-            {
-                return null;
-            }
-        }
+        
     }
 }

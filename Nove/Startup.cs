@@ -45,7 +45,7 @@ namespace Nove
 
             services.AddScoped<IBookServices, BookServices>();
             services.AddScoped<ISortServices, SortServices>();
-            services.AddScoped<IUserServices, UserServices>();
+            //services.AddScoped<IUserServices, UserServices>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
