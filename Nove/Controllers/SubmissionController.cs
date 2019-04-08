@@ -6,9 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Nove.Controllers
 {
-    public class ReadController : Controller
+    public class SubmissionController : Controller
     {
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Submission()
         {
             return View();
         }

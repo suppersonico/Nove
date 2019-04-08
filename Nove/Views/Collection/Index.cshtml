@@ -1,16 +1,7 @@
-﻿@model IEnumerable<Book>
+﻿
 @{
     ViewData["Title"] = "Index";
 }
-<style>
-    .container-flex {
-        display: flex;
-    }
-
-        .container-flex .card {
-            margin: 30px;
-        }
-</style>
 
 <div class="row" style="padding-top:30px;padding-bottom:50px">
     <div class="col-sm">
@@ -25,19 +16,4 @@
     <div class="col-sm">
         <a class="btn btn-primary" asp-controller="Manage" asp-action="Index" role="button">投稿管理</a>
     </div>
-</div>
-
-<div class="container-flex">
-    @{
-        foreach (var item in Model)
-        {
-            <div class="card" style="width: 18rem;">
-                <img src="@item.bigImage" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">@item.bookName</h5>
-                    <a asp-controller="Detail" asp-action="Index" asp-route-id="@item.Id" class="btn btn-primary">去看看</a>
-                </div>
-            </div>
-        }
-    }
 </div>
