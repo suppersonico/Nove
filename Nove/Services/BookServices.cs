@@ -1,4 +1,5 @@
-﻿using Nove.Data;
+﻿using Microsoft.AspNetCore.Identity;
+using Nove.Data;
 using Nove.Models;
 using System;
 using System.Collections.Generic;
@@ -10,10 +11,12 @@ namespace Nove.Services
     public class BookServices:IBookServices
     {
         private readonly ApplicationDbContext _applicationDbContext;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public BookServices(ApplicationDbContext applicationDbContext)
+        public BookServices(ApplicationDbContext applicationDbContext, UserManager<IdentityUser> UserManager)
         {
             _applicationDbContext = applicationDbContext;
+            _userManager = UserManager;
         }
 
         public Book BookDetail(int id)
@@ -38,5 +41,7 @@ namespace Nove.Services
         {
             return Task.Run(() => _applicationDbContext.Books.OrderBy(r => r.Rank).Take(3).AsEnumerable());
         }
+
+
     }
 }
